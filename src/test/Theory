@@ -1,0 +1,85 @@
+Life cycle of Bean :-
+        i)Instantiate/Creation
+        ii)set properties
+        iii)init() function call to initialize the bean i.e. create connection,etc
+        iv)Then we read and use the bean
+        v)destroy() function call to clean up the object i.e remove connection,etc
+        vi) Finish the object
+
+Configuration Techniques:-
+                        i) Xml configuration - AbstractApplicationContext interface to destroy
+                        ii) Spring Interface - InitializingBean-> to initialize, DisposableBean-> to destroy
+                        iii) Annotations - modern way
+                                          - <context:annotation-config/> is a tag used in xml file to enable all the annotations of the project
+
+AutoWiring :-
+        -Feature of spring framework in which spring container inject the dependencies automatically.
+        -Autowiring cant be used with Primitive values. it works with refrences(Objects) only.
+        -We can do autowiring in two ways:-
+                i) Manually -> we use <ref bean="nameOfBean" /> tag,Jo abhi tak use krte aye hai.
+                ii) Automtically -> we use AutoWiring Method-
+                                                    i)Using XML ---> AutoWiringModes-no->(by default not enabled)
+                                                                                    byName -> search by name of dependency
+                                                                                    byType -> search by type of dependency i.e. by Class name
+                                                                                    constructor -> search for constructor
+                                                    ii) Using Annotations ----> @AutoWired
+
+
+StandAlone Collection:-
+            Ham collections ko standalone banate hai taki us collection ko hm khi bhi use kr ske uske id="" ki help se
+
+StereoType Annotation:-
+            -When we dont want to use bean tag to declare dependency in XML file then we use Stereotypy annotation.
+            -Hum jis class ka bean banana chahte hai us class ke upar @Component lga denge which ensures that it creates object of that class.
+            -Us class ke sabhi variables(primitive) ke upar @Value("valueName") lga denge to initialize that variable with that value.
+            -If any Collections object is present then we will create standalone Collection in XML file then inject id of that collection in @value("#{idOfCollection}") like this.
+            -We only give refrence of that package in XML file to do this task.
+
+Spring Bean Scope :-
+            Spring Framework me Bean Scope matlab kitni baar ek Bean ka object create hoga aur kaun use karega.
+            Spring me 5 tarah ke Bean Scopes hote hain:
+                i)   singleton-->	Ek hi object pura container me share hota hai (default)
+                ii)  prototype-->	Har request pe naya object banta hai
+                iii) request-->	Ek HTTP request ke liye ek bean object banta hai (Spring Web Apps ke liye)
+                iv) session-->	Ek HTTP session ke liye ek bean object banta hai (Spring Web Apps ke liye)
+                v)  application-->	Ek servlet context ke liye ek hi bean object hota hai
+
+
+Spring Expression Language :-
+            Supports parsing and executing expressions with the help of @Value annotation and spring annotation parser class.
+
+How can we invoke static method and static varibales with Spring expression language?
+           Ans = we will pass T(class).methodName(param) to @Value annotation  ---->for methods
+           Ans = we will pass T(class).variable to @Value annotation   ------------>for variables
+
+
+
+
+
+Aspect Oriented Programming :-
+           -Programming paradigm hai jo cross-cutting concerns ko modularize karne ke liye use hoti hai
+           -Cross-cutting concerns woh functionalities hoti hain jo multiple classes ya modules me repeat hoti hain
+           -Agar hum bina AOP ke in concerns ko implement karein, toh hume har jagah same code likhna padega
+
+Fundamanetal Concept in AOP :-
+    i) Aspect -> Aspect ek modular unit hota hai jo cross-cutting concerns ko handle/store karta hai.
+                 -Yeh ek Java class hoti hai jo ek ya ek se zyada concerns ko encapsulate karti hai.
+
+    ii)Join Point -> Join Point ek specific point hota hai jahan AOP aspect apply ho sakta hai.
+                     -Jaise----> Method Excution,Exceptional handling
+
+    iii)Pointcut -> Pointcut ek expression hota hai jo specify karta hai ki kaunse join points pe aspect apply hoga.
+                    Example: "execution(* com.example.service.*.*(..))"
+                                → Yeh pointcut service package ke saare methods par aspect apply karega.
+
+    iv) Advice -> Advice woh actual action hota hai jo aspect perform karta hai at particular joinpoint.
+                   Types of Advice:
+                        Before Advice → Join point se pehle execute hota hai.
+                        After Advice → Join point ke baad execute hota hai.
+                        Around Advice → Join point ke aage-peeche dono taraf execute hota hai.
+                        After Returning Advice → Method successfully return hone ke baad execute hota hai.
+                        After Throwing Advice → Exception throw hone par execute hota hai.
+
+
+
+

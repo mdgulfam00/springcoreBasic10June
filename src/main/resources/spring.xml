@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:util="http://www.springframework.org/schema/util" xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context.xsd
+           http://www.springframework.org/schema/util
+            https://www.springframework.org/schema/util/spring-util.xsd">
+
+
+        <!--    3 ways through which we inject with Setter Mehtod-->
+<!--    First bean-->
+<!--    <bean class="com.tut.Student"  name="student1">-->
+<!--        <property name="studentId" value="234"/>-->
+<!--        <property name="studentName" value="Gulfam"/>-->
+<!--        <property name="studentAddress" value="Sultanpur"/>-->
+<!--    </bean>-->
+<!--    Second bean-->
+<!--    <bean class="com.tut.Student"  name="student2">-->
+<!--        <property name="studentId" value="123"/>-->
+<!--        <property name="studentName" value="Atul"/>-->
+<!--        <property name="studentAddress" value="Lucknow"/>-->
+<!--    </bean>-->
+<!--    Third Bean-->
+<!--    <bean class="com.tut.Student" name="student3" p:studentId="345" p:studentName="Aoun" p:studentAddress="Delhi" />-->
+<!--    Fourth Bean-->
+<!--    <bean class="com.tut.Student" name="student4">-->
+<!--        <property name="studentId">-->
+<!--            <value>1010</value>-->
+<!--        </property>-->
+<!--        <property name="studentName">-->
+<!--            <value>Sohan</value>-->
+<!--        </property>-->
+<!--        <property name="studentAddress">-->
+<!--            <value>Mumbai</value>-->
+<!--        </property>-->
+<!--    </bean>-->
+
+<!-- ############################################################################-->
+<!--Injecting Collection types in springcore.collections-->
+
+<!--    <bean class="com.springcore.collections.Emp" name="employee1">-->
+<!--        <property name="employeeName" value="Gulfam"/>-->
+<!--        <property name="phones">-->
+<!--            <list>-->
+<!--                <value>10457287</value>-->
+<!--                <value>2098y283</value>-->
+<!--                <value>3092379874</value>-->
+<!--                <value>40298378</value>-->
+<!--                <value>5029837</value>-->
+<!--            </list>-->
+<!--        </property>-->
+<!--        <property name="addresses">-->
+<!--            <set>-->
+<!--                <value>Lucknow</value>-->
+<!--                <value>Sultanpur</value>-->
+<!--                <value>Delhi</value>-->
+<!--                <value>Mumbai</value>-->
+<!--                <value>Pune</value>-->
+<!--            </set>-->
+<!--        </property>-->
+<!--        <property name="courses">-->
+<!--            <map>-->
+<!--                <entry key="Java" value="2 Months"/>-->
+<!--                <entry key="Python" value="11.2 Months"/>-->
+<!--                <entry key="C" value="1 months"/>-->
+<!--            </map>-->
+<!--        </property>-->
+<!--    </bean>-->
+
+<!--    ##########################################################################################-->
+
+<!--    Injecting Refrence type variables-->
+
+<!--    <bean class="com.springcore.ref.B" name="bref">-->
+<!--            <property name="y" value="90"/>-->
+<!--    </bean>-->
+
+<!--    Type - I-->
+<!--    <bean class="com.springcore.ref.A" name="aref">-->
+<!--            <property name="x" value="10"/>-->
+<!--            <property name="ob" ref="bref"/>-->
+<!--    </bean>-->
+
+<!--    Type - II-->
+<!--    <bean class="com.springcore.ref.A" name="aref" p:x="11" p:ob-ref="bref"/>-->
+
+<!--    ##########################################################################################-->
+<!--        Constructor Injection-->
+<!--        <bean class="com.springcore.constructorInjection.Person" name="person">-->
+<!--            <constructor-arg name="name" value="Gulfam"/>-->
+<!--            <constructor-arg name="personId" value="25"/>-->
+<!--        </bean>-->
+
+<!--    type - II-->
+<!--    <bean class="com.springcore.constructorInjection.Person" name="person">-->
+<!--        <constructor-arg value="Saziya"/>-->
+<!--        <constructor-arg value="22"/>-->
+<!--    </bean>-->
+
+<!--    ##########################################################################################-->
+<!--        Resolving Ambiguity in constructor's argument's Datatypes-->
+<!--            <bean class="com.springcore.constructorInjection.solveCIambiguityProblem" name="add">-->
+<!--                <constructor-arg value="12" type="double"/>-->
+<!--                <constructor-arg value="25" type="double"/>-->
+<!--            </bean>-->
+
+<!--    ##########################################################################################-->
+<!--            Understanding LifeCycle of Beans - USING XML-->
+<!--            <bean class="com.springcore.lifecycleXML.Samosa" name="s1" init-method="init" destroy-method="destroy">-->
+<!--                <property name="price" value="10.5"/>-->
+<!--            </bean>-->
+
+<!--                Using Interfaces-->
+<!--            <bean class="com.springcore.lifecycleInterfaces.Pepsi" name="p1">-->
+<!--                <property name="price" value="25"/>-->
+<!--            </bean>-->
+
+<!--        Using Annotations-->
+
+    <!-- Enable annotation-based lifecycle methods (@PostConstruct, @PreDestroy) -->
+    <!-- Define Example bean manually -->
+<!--    <context:annotation-config/>-->
+<!--    <bean class="com.springcore.lifecycleAnnotations.Example" id="example">-->
+<!--        <property name="subject" value="Physics"/>-->
+<!--    </bean>-->
+
+
+<!--    ##########################################################################################-->
+<!--AutoWiring using XML-->
+<!--        <bean class="com.springcore.autowireXML.Address" name="address">-->
+<!--            <property name="street" value="Chandi Chowk"/>-->
+<!--            <property name="city" value="Delhi"/>-->
+<!--        </bean>-->
+
+<!--        <bean class="com.springcore.autowireXML.Employee" name="emp1" autowire="byName"/>-->
+<!--        <bean class="com.springcore.autowireXML.Employee" name="emp2" autowire="byType"/>-->
+<!--        <bean class="com.springcore.autowireXML.Employee" name="emp3" autowire="constructor"/>-->
+
+<!--AutoWiring using Annotation-->
+
+<!--            <context:annotation-config/>-->
+<!--            <bean class="com.springcore.autowireAnnotation.Address" name="address">-->
+<!--                <property name="street" value="Chaman ganj"/>-->
+<!--                <property name="city" value="Sultanpur"/>-->
+<!--            </bean>-->
+<!--            <bean class="com.springcore.autowireAnnotation.Address" name="address2">-->
+<!--                <property name="street" value="Highway"/>-->
+<!--                <property name="city" value="Lucknow"/>-->
+<!--            </bean>-->
+
+<!--            <bean class="com.springcore.autowireAnnotation.Employee" name="emp1"/>-->
+
+<!--    ##########################################################################################-->
+<!--StandAlone Collections-->
+
+<!--    creating standalone list-->
+        <util:list list-class="java.util.LinkedList" id="myBestFreinds">
+            <value>Aman</value>
+            <value>Raman</value>
+            <value>Rohit</value>
+            <value>Sagun</value>
+        </util:list>
+<!--    creating standalone map-->
+        <util:map map-class="java.util.HashMap" id="myCourseStructure">
+            <entry key="Java" value="456"/>
+            <entry key="Python" value="2000"/>
+            <entry key="React" value="1200"/>
+            <entry key="Ruby" value="3200"/>
+        </util:map>
+<!--    creating standalone properties-->
+    <util:properties id="dbconfig">
+        <prop key="driver">com.ysql.jdbc.database</prop>
+        <prop key="username">root</prop>
+        <prop key="password">Sultanpur@123</prop>
+    </util:properties>
+
+<!--    <bean class="com.springcore.standaloneCollections.Person" name="person1">-->
+<!--        <property name="friends" ref="myBestFreinds"/>-->
+<!--        <property name="mp" ref="myCourseStructure"/>-->
+<!--        <property name="properties" ref="dbconfig"/>-->
+<!--    </bean>-->
+
+<!--    ##########################################################################################-->
+<!--StereoType Annotation-->
+<!--    <context:component-scan base-package="com.springcore.stereoType"/>-->
+<!--    <util:list list-class="java.util.ArrayList" id="listContent">-->
+<!--        <value >Delhi</value>-->
+<!--        <value >Mumbai</value>-->
+<!--        <value >Hyderabad</value>-->
+<!--        <value >Banglore</value>-->
+<!--        <value >Haryana</value>-->
+<!--    </util:list>-->
+
+<!--    ##########################################################################################-->
+<!--Spring Expression language SpEL-->
+
+<!--    <context:component-scan base-package="com.springcore.SpringExpressionLanguage"/>-->
+
+<!--    ##########################################################################################-->
+<!--    Removing complete xml file-->
+<!--    <context:component-scan base-package="com.springcore.removeXMLfileConfiguration"/>-->
+
+<!--    ##########################################################################################-->
+<!--    HomeWork26-->
+<!--    <bean name="book1" class="com.springcore.homeWork26.Book">-->
+<!--        <property name="id" value="E105"/>-->
+<!--        <property name="name" value="Physics"/>-->
+<!--        <property name="author" value="Harry Potter"/>-->
+<!--        <property name="isbn" value="9876554345787"/>-->
+<!--    </bean>-->
+
+<!--    <bean name="book2" class="com.springcore.homeWork26.Book">-->
+<!--        <property name="id" value="E106"/>-->
+<!--        <property name="name" value="Chemistry"/>-->
+<!--        <property name="author" value="Livinsgton"/>-->
+<!--        <property name="isbn" value="749293828464"/>-->
+<!--    </bean>-->
+<!--    <bean name="book3" class="com.springcore.homeWork26.Book">-->
+<!--        <property name="id" value="E107"/>-->
+<!--        <property name="name" value="English"/>-->
+<!--        <property name="author" value="Tom Cruise"/>-->
+<!--        <property name="isbn" value="992387673627"/>-->
+<!--    </bean>-->
+
+<!--    <bean class="com.springcore.homeWork26.BookServiceImpl" name="bookService">-->
+<!--        <property name="bookInventory">-->
+<!--            <map >-->
+<!--                <entry key="9876554345787" value-ref="book1"/>-->
+<!--                <entry key="749293828464" value-ref="book2"/>-->
+<!--                <entry key="992387673627" value-ref="book3"/>-->
+<!--            </map>-->
+<!--        </property>-->
+<!--    </bean>-->
+
+<!--    ##########################################################################################-->
+
+<!--    28 February-->
+<!--    <bean class="com.springcore.Feb28.Department" name="department">-->
+<!--        <property name="department" value="CSE"/>-->
+<!--    </bean>-->
+
+<!--    <bean class="com.springcore.Feb28.Employee" name="employee">-->
+<!--        <constructor-arg name="employeeId" value="101"/>-->
+<!--        <constructor-arg name="empName" value="Rohan"/>-->
+<!--        <constructor-arg name="department" ref="department"/>-->
+<!--    </bean>-->
+
+<!--    ##########################################################################################-->
+<!--02 march-->
+<!--        <bean class="com.springcore.March02.Student" name="student">-->
+<!--            <property name="id" value="101"/>-->
+<!--            <property name="name" value="Rohan"/>-->
+<!--            <property name="rollNumber" value="22"/>-->
+<!--            <property name="subjectCode">-->
+<!--                <set>-->
+<!--                    <value>CSE101</value>-->
+<!--                    <value>CSE105</value>-->
+<!--                    <value>CSE210</value>-->
+<!--                    <value>CSE510</value>-->
+<!--                </set>-->
+<!--            </property>-->
+<!--            <property name="subjects">-->
+<!--                <list>-->
+<!--                    <value>Data Structure</value>-->
+<!--                    <value>DBMS</value>-->
+<!--                    <value>Java</value>-->
+<!--                    <value>OOPS</value>-->
+<!--                </list>-->
+<!--            </property>-->
+<!--            <property name="subjectDescription">-->
+<!--                <map>-->
+<!--                    <entry key="DBMS" value="56"/>-->
+<!--                    <entry key="Java" value="89"/>-->
+<!--                    <entry key="OOps" value="82"/>-->
+<!--                    <entry key="Data Structure" value="75"/>-->
+<!--                </map>-->
+<!--            </property>-->
+<!--        </bean>-->
+
+
+</beans>
